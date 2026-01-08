@@ -17,6 +17,15 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore += amount;
         UpdateScoreUI();
+
+        if (currentScore >= 100)
+        {
+            GameOverManager gm = FindFirstObjectByType<GameOverManager>();
+            if (gm != null)
+            {
+                gm.TriggerWin();
+            }
+        }
     }
 
     void UpdateScoreUI()

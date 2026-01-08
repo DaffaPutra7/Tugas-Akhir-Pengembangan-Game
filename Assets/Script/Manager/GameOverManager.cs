@@ -1,13 +1,20 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
-    public GameObject gameOverText; 
+    public GameObject gameOverPanel;
+    public GameObject winPanel; 
 
     public void TriggerGameOver()
     {
-        gameOverText.SetActive(true);
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void TriggerWin()
+    {
+        winPanel.SetActive(true);
 
         Time.timeScale = 0f;
     }
@@ -15,7 +22,6 @@ public class GameOverManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
