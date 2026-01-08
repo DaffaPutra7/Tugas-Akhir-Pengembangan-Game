@@ -18,16 +18,19 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("Peluru"))
         {
-            Destroy(other.gameObject);
 
-            Destroy(gameObject);
+            ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+            if (scoreManager != null)
+            {
+                scoreManager.AddScore(10);
+            }
 
-            // (tambah Script Skor)
+            Destroy(other.gameObject); 
+            Destroy(gameObject);       
         }
         else if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-            // Game Over Logic 
             Debug.Log("GAME OVER!");
         }
     }
