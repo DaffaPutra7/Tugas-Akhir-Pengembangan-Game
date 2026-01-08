@@ -5,6 +5,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Pengaturan Kecepatan")]
     public float moveSpeed = 5f;
 
+    [Header("Pengaturan Menembak")]
+    public GameObject bulletPrefab; 
+    public Transform firePoint;    
+
     [Header("Komponen")]
     public Rigidbody2D rb;
 
@@ -18,9 +22,7 @@ public class PlayerMovement : MonoBehaviour
         if (rb == null) rb = GetComponent<Rigidbody2D>();
 
         Camera mainCamera = Camera.main;
-
         float distanceToCamera = Mathf.Abs(mainCamera.transform.position.z);
-
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, distanceToCamera));
 
         objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x;
@@ -31,6 +33,16 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
     }
 
     void FixedUpdate()
@@ -41,10 +53,8 @@ public class PlayerMovement : MonoBehaviour
     void LateUpdate()
     {
         Vector3 viewPos = transform.position;
-
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
         viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
-
         transform.position = viewPos;
     }
 }
