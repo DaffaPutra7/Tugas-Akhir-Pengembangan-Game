@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     private int currentScore = 0;
+    private bool targetReached = false; 
 
     void Start()
     {
@@ -18,18 +19,31 @@ public class ScoreManager : MonoBehaviour
         currentScore += amount;
         UpdateScoreUI();
 
-        if (currentScore >= 100)
+        if (currentScore >= 100 && !targetReached)
         {
-            GameOverManager gm = FindFirstObjectByType<GameOverManager>();
-            if (gm != null)
+            Level3Manager level3 = FindFirstObjectByType<Level3Manager>();
+
+            if (level3 != null)
             {
-                gm.TriggerWin();
+                targetReached = true; 
+                level3.StartBossPhase();
+            }
+            else
+            {
+                GameOverManager gm = FindFirstObjectByType<GameOverManager>();
+                if (gm != null)
+                {
+                    gm.TriggerWin();
+                }
             }
         }
     }
 
     void UpdateScoreUI()
     {
-        scoreText.text = "Score: " + currentScore.ToString();
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + currentScore.ToString();
+        }
     }
 }
