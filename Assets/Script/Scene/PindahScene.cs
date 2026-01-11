@@ -3,25 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class PindahScene : MonoBehaviour
 {
-    public GameObject aboutPanel;
 
-    // === BUTTON START ===
+    // BUTTON START
     public void StartGame()
     {
         SceneManager.LoadScene("HalamanLevel");
     }
 
-    // === BUTTON ABOUT ===
+    // BUTTON ABOUT
     public void OpenAbout()
     {
-        if (aboutPanel != null)
-            aboutPanel.SetActive(true);
+        SceneManager.LoadScene("HalamanAbout");
     }
 
-    public void CloseAbout()
+    // BUTTON BACK(dari About)
+    public void BackToMenu()
     {
-        if (aboutPanel != null)
-            aboutPanel.SetActive(false);
+        SceneManager.LoadScene("HalamanUtama");
     }
 
     // === BUTTON EXIT ===

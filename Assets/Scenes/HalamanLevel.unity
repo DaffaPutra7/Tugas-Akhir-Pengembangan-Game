@@ -699,8 +699,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelSelect, Assembly-CSharp
+      - m_Target: {fileID: 1941262278}
+        m_TargetAssemblyTypeName: PindahScene, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
@@ -1560,6 +1560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941262276}
   - component: {fileID: 1941262277}
+  - component: {fileID: 1941262278}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1596,6 +1597,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelect
   level2Button: {fileID: 1125574839}
   level3Button: {fileID: 236354868}
+--- !u!114 &1941262278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941262274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ac006cb08565b479309586bc5e0a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PindahScene
 --- !u!1 &2065973859
 GameObject:
   m_ObjectHideFlags: 0

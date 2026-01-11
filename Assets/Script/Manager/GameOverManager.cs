@@ -50,19 +50,17 @@ public class GameOverManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextLevelToUnlock = 1;
 
-        if (currentSceneIndex == 2) nextLevelToUnlock = 2;
-        if (currentSceneIndex == 3) nextLevelToUnlock = 3;
+        int dataToSave = currentSceneIndex - 1;
 
-        int currentLevelReached = PlayerPrefs.GetInt("levelReached", 1);
+        int oldData = PlayerPrefs.GetInt("levelReached", 1);
 
-        if (nextLevelToUnlock > currentLevelReached)
+        if (dataToSave > oldData)
         {
-            PlayerPrefs.SetInt("levelReached", nextLevelToUnlock);
-            PlayerPrefs.Save(); 
+            PlayerPrefs.SetInt("levelReached", dataToSave);
+            PlayerPrefs.Save();
+            Debug.Log("Progress Disimpan! Level Terbuka sampai: " + dataToSave);
         }
 
         int nextSceneIndex = currentSceneIndex + 1;

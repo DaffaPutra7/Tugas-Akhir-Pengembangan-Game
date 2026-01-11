@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/HalamanUtama.unity
     guid: ea0252bc6faa5fd46a1997ca3b2a55c2
   - enabled: 1
+    path: Assets/Scenes/HalamanAbout.unity
+    guid: b6d2ce7b80134754fa63d8f430433e95
+  - enabled: 1
     path: Assets/Scenes/HalamanLevel.unity
     guid: deabee11771b78743a0cb22c08b94fb5
   - enabled: 1
